@@ -1,0 +1,19 @@
+# dotfiles
+
+## usage
+
+- install:
+    - alacritty
+    - neovim
+    - rustup
+    - go
+    - fzf
+    - ripgrep
+    - packer
+
+- symlink:
+    - .config/alacritty/alacritty-{platform} to ~/.config/alacritty.toml
+    - .config/neovim to ~/.config/neovim
+    - .tmux.conf to ~/.tmux.conf
+    - .bash{rc,_profile} to ~/.bash{rc,_profile}
+
