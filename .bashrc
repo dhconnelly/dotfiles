@@ -1,5 +1,9 @@
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+if [ -f "$HOME/.bashrc_local" ]; then
+    . $HOME/.bashrc_local
+fi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -9,6 +13,8 @@ esac
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+export EDITOR=nvim
 
 # -----------------------------------------------------------------------------
 # history
@@ -32,7 +38,6 @@ fi
 # colors
 
 # enable color support of ls and also add handy aliases
-test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -66,7 +71,12 @@ export PATH=$PATH:/usr/local/go/bin
 # -----------------------------------------------------------------------------
 # shell config
 
-PS1='\[\e[2;3m\]\u\[\e[23m\]@\[\e[3m\]\h \[\e[0;1m\]\W \[\e[0;2m\]\$ \[\e[0m\]'
+. /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+
+PS1='\[\e[2;3m\]\u\[\e[23m\]@\[\e[3m\]\h \[\e[0;1m\]\W \[\e[0;2m\]$(__git_ps1 "(%s) ")\$ \[\e[0m\]'
+export CLICOLOR=1
+export MANPAGER="/usr/bin/less -R --use-color -Ddg -Du+y"
+
 
 # -----------------------------------------------------------------------------
 # aliases

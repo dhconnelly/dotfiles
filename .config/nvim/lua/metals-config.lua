@@ -5,7 +5,7 @@ local cmd = vim.cmd
 local map = vim.keymap.set
 
 -- lsp mappings
-map("n", "gD",  vim.lsp.buf.definition)
+map("n", "gd",  vim.lsp.buf.definition)
 map("n", "K",  vim.lsp.buf.hover)
 map("n", "gi", vim.lsp.buf.implementation)
 map("n", "gr", vim.lsp.buf.references)

@@ -20,6 +20,7 @@ lua require("dap-config")
 colorscheme slate
 
 " keybindings
+nnoremap <leader>b <cmd>cclose<cr>
 nnoremap <C-\><C-t> <cmd>tabnew<cr>
 nnoremap <C-\><C-\> <cmd>tabnext<cr>
 nnoremap <leader>fc <cmd>Telescope commands<cr>
