@@ -21,8 +21,6 @@ export EDITOR=nvim
 
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
-HISTSIZE=-1
-HISTFILESIZE=-1
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -67,6 +65,7 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 . "$HOME/.cargo/env"
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
 
 # -----------------------------------------------------------------------------
 # shell config

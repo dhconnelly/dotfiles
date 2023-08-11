@@ -15,4 +15,5 @@ return require('packer').startup(function (use)
     }}
     use 'nvim-tree/nvim-tree.lua'
     use 'mfussenegger/nvim-dap'
+    use 'neovim/nvim-lspconfig'
 end)
