@@ -20,6 +20,7 @@ lua require("lspconfig").gopls.setup({})
 " hooks
 autocmd BufWritePre *.rs,*.scala lua vim.lsp.buf.format({ async = false })
 
+" thanks to https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-902680058
 lua <<EOF
     function org_imports(wait_ms)
       local params = vim.lsp.util.make_range_params()
