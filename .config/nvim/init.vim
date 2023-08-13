@@ -12,31 +12,13 @@ set softtabstop=4
 lua require("telescope").setup()
 lua require("plugins")
 lua require("cmp-config")
-lua require("metals-config")
 lua require("nvim-tree-config")
-lua require("dap-config")
 lua require("lspconfig").gopls.setup({})
+lua require("metals-config")
+lua require("go-config")
 
 " hooks
 autocmd BufWritePre *.rs,*.scala lua vim.lsp.buf.format({ async = false })
-
-" thanks to https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-902680058
-lua <<EOF
-    function org_imports(wait_ms)
-      local params = vim.lsp.util.make_range_params()
-      params.context = {only = {"source.organizeImports"}}
-      local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
-      for _, res in pairs(result or {}) do
-        for _, r in pairs(res.result or {}) do
-          if r.edit then
-            vim.lsp.util.apply_workspace_edit(r.edit, "utf-16")
-          else
-            vim.lsp.buf.execute_command(r.command)
-          end
-        end
-      end
-  end
-EOF
 
 augroup GO_LSP
 	autocmd!

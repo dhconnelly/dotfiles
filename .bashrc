@@ -62,6 +62,7 @@ fi
 
 if [ "$(uname)" == "Darwin" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
+    export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
 fi
 . "$HOME/.cargo/env"
 export PATH=$PATH:/usr/local/go/bin

@@ -4,6 +4,27 @@ local api = vim.api
 local cmd = vim.cmd
 local map = vim.keymap.set
 
+cmd([[packadd packer.nvim]])
+require("packer").startup(function(use)
+  use({ "wbthomason/packer.nvim", opt = true })
+
+  use({
+    "hrsh7th/nvim-cmp",
+    requires = {
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/cmp-vsnip" },
+      { "hrsh7th/vim-vsnip" },
+    },
+  })
+  use({
+    "scalameta/nvim-metals",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "mfussenegger/nvim-dap",
+    },
+  })
+end)
+
 map("n", "<leader>ws", function()
   require("metals").hover_worksheet()
 end)
