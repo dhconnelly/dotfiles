@@ -67,7 +67,6 @@ metals_config.settings = {
     showImplicitArguments = false,
     showImplicitConversionsAndClasses = false,
     showInferredType = false,
-    testUserInterface = "Test Explorer",
 }
 metals_config.on_attach = function(client, bufnr)
     require("metals").setup_dap()
