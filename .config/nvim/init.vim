@@ -9,8 +9,8 @@ set softtabstop=4
 
 " plugins
 
-lua require("telescope").setup()
 lua require("plugins")
+lua require("telescope").setup()
 lua require("cmp-config")
 lua require("nvim-tree-config")
 lua require("lspconfig").gopls.setup({})
@@ -20,11 +20,18 @@ lua require("go-config")
 " hooks
 autocmd BufWritePre *.rs,*.scala lua vim.lsp.buf.format({ async = false })
 
+" format go code and run goimports on save
 augroup GO_LSP
 	autocmd!
 	autocmd BufWritePre *.go :silent! lua vim.lsp.buf.formatting()
 	autocmd BufWritePre *.go :silent! lua org_imports(3000)
 augroup END
+
+" process packer plugin changes
+augroup packer_user_config
+  autocmd!
+  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+augroup end
 
 " colors
 colorscheme slate
