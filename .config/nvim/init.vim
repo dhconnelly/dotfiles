@@ -22,19 +22,19 @@ autocmd BufWritePre *.rs,*.scala lua vim.lsp.buf.format({ async = false })
 
 " format go code and run goimports on save
 augroup GO_LSP
-	autocmd!
-	autocmd BufWritePre *.go :silent! lua vim.lsp.buf.formatting()
-	autocmd BufWritePre *.go :silent! lua org_imports(3000)
+    autocmd!
+    autocmd BufWritePre *.go :silent! lua vim.lsp.buf.formatting()
+    autocmd BufWritePre *.go :silent! lua org_imports(3000)
 augroup END
 
 " process packer plugin changes
 augroup packer_user_config
-  autocmd!
-  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
 
 " colors
-colorscheme slate
+colorscheme tokyonight-storm
 
 " keybindings
 nnoremap <leader>b <cmd>cclose<cr>
@@ -48,6 +48,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fs <cmd>Telescope lsp_dynamic_workspace_symbols<cr>
 
 " lsp
 nnoremap gd <cmd>lua vim.lsp.buf.definition()<cr>

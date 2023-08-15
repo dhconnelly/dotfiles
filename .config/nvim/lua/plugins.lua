@@ -20,23 +20,24 @@ return require('packer').startup(function (use)
         'nvim-lua/plenary.nvim',
     }}
     use({
-        "hrsh7th/nvim-cmp",
+        'hrsh7th/nvim-cmp',
         requires = {
-            { "hrsh7th/cmp-nvim-lsp" },
-            { "hrsh7th/cmp-vsnip" },
-            { "hrsh7th/vim-vsnip" },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-vsnip' },
+            { 'hrsh7th/vim-vsnip' },
         },
     })
     use({
-        "scalameta/nvim-metals",
+        'scalameta/nvim-metals',
         requires = {
-            "nvim-lua/plenary.nvim",
-            "mfussenegger/nvim-dap",
+            'nvim-lua/plenary.nvim',
+            'mfussenegger/nvim-dap',
         },
     })
     use { 'nvim-tree/nvim-tree.lua' }
     use { 'mfussenegger/nvim-dap' }
     use { 'neovim/nvim-lspconfig' }
+    use { 'folke/tokyonight.nvim' }
 
     if packer_bootstrap then
         require('packer').sync()

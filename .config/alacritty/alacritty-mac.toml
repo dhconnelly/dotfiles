@@ -5,5 +5,5 @@ shell = { program = "/opt/homebrew/bin/bash" }
 option_as_alt = "OnlyLeft"
 
 [font]
-size = 14
+size = 16
 
