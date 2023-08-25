@@ -23,7 +23,7 @@ autocmd BufWritePre *.rs,*.scala lua vim.lsp.buf.format({ async = false })
 " format go code and run goimports on save
 augroup GO_LSP
     autocmd!
-    autocmd BufWritePre *.go :silent! lua vim.lsp.buf.formatting()
+    autocmd BufWritePre *.go :silent! lua vim.lsp.buf.format()
     autocmd BufWritePre *.go :silent! lua org_imports(3000)
 augroup END
 
