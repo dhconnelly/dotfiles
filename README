@@ -10,6 +10,8 @@
     - fzf
     - ripgrep
     - packer
+    - git-prompt: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+
 
 - symlink:
     - .config/alacritty/alacritty-{platform} to ~/.config/alacritty.toml

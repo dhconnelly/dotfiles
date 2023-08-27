@@ -15,6 +15,8 @@ esac
 shopt -s checkwinsize
 
 export EDITOR=nvim
+export CLICOLOR=1
+export MANPAGER="/usr/bin/less -R --use-color -Ddg -Du+y"
 
 # -----------------------------------------------------------------------------
 # history
@@ -24,13 +26,6 @@ HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
-
-# use fzf for shell history
-if [ "$(uname)" == "Darwin" ]; then
-    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-else
-    source /usr/share/doc/fzf/examples/key-bindings.bash
-fi
 
 # -----------------------------------------------------------------------------
 # colors
@@ -44,7 +39,12 @@ export CLICOLOR=1
 export MANPAGER="/usr/bin/less -R --use-color -Ddg -Du+y"
 
 # -----------------------------------------------------------------------------
-# completions
+# prompt
+
+PS1='\[\e[93;2m\]\u@\h \[\e[0;1m\]\W \[\e[0;90;2m\]$(__git_ps1 "(%s) ")\[\e[39m\]\$ \[\e[0m\]'
+
+# -----------------------------------------------------------------------------
+# completions and so on
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -57,26 +57,26 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ "$(uname)" == "Darwin" ]; then
+    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+    . /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+elif [ "$(uname)" == "FreeBSD" ]; then
+    . /usr/local/share/examples/fzf/shell/key-bindings.bash
+    . /usr/local/share/git-core/contrib/completion/git-prompt.sh 
+else
+    . /usr/share/doc/fzf/examples/key-bindings.bash
+fi
+
 # -----------------------------------------------------------------------------
 # path
 
 if [ "$(uname)" == "Darwin" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
     export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
+    . "$HOME/.cargo/env"
 fi
-. "$HOME/.cargo/env"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
-
-# -----------------------------------------------------------------------------
-# shell config
-
-. /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
-
-PS1='\[\e[2;3m\]\u\[\e[23m\]@\[\e[3m\]\h \[\e[0;1m\]\W \[\e[0;2m\]$(__git_ps1 "(%s) ")\$ \[\e[0m\]'
-export CLICOLOR=1
-export MANPAGER="/usr/bin/less -R --use-color -Ddg -Du+y"
-
 
 # -----------------------------------------------------------------------------
 # aliases
