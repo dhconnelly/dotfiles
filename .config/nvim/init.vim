@@ -16,6 +16,7 @@ lua require("nvim-tree-config")
 lua require("lspconfig").gopls.setup({})
 lua require("metals-config")
 lua require("go-config")
+lua require("c-config")
 
 " hooks
 autocmd BufWritePre *.rs,*.scala lua vim.lsp.buf.format({ async = false })
@@ -41,6 +42,7 @@ nnoremap <leader>b <cmd>cclose<cr>
 nnoremap <C-\><C-t> <cmd>tabnew<cr>
 nnoremap <C-\><C-\> <cmd>tabnext<cr>
 nnoremap <C-n><C-t> <cmd>NvimTreeToggle<cr>
+nnoremap <C-h> <cmd>ClangdSwitchSourceHeader<cr>
 
 " telescope
 nnoremap <leader>fc <cmd>Telescope commands<cr>
