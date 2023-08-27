@@ -41,7 +41,7 @@ export MANPAGER="/usr/bin/less -R --use-color -Ddg -Du+y"
 # -----------------------------------------------------------------------------
 # prompt
 
-PS1='\[\e[93;2m\]\u@\h \[\e[0;1m\]\W \[\e[0;90;2m\]$(__git_ps1 "(%s) ")\[\e[39m\]\$ \[\e[0m\]'
+PS1='\[\e[93;2m\]\u\[\e[93m\]@\[\e[93m\]\h \[\e[0;1m\]\W \[\e[0;90m\]$(__git_ps1 "(%s) ")\[\e[0;2m\]\$ \[\e[0m\]'
 
 # -----------------------------------------------------------------------------
 # completions and so on
@@ -74,6 +74,8 @@ if [ "$(uname)" == "Darwin" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
     export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
     . "$HOME/.cargo/env"
+elif [ "$(uname)" == "FreeBSD" ]; then
+    alias make=gmake
 fi
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
