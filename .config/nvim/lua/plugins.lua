@@ -38,6 +38,7 @@ return require('packer').startup(function (use)
     use { 'mfussenegger/nvim-dap' }
     use { 'neovim/nvim-lspconfig' }
     use { 'folke/tokyonight.nvim' }
+    use { 'tpope/vim-fugitive' }
 
     if packer_bootstrap then
         require('packer').sync()

@@ -10,7 +10,7 @@ set softtabstop=4
 " plugins
 
 lua require("plugins")
-lua require("telescope").setup()
+lua require("telescope-config")
 lua require("cmp-config")
 lua require("nvim-tree-config")
 lua require("lspconfig").gopls.setup({})
@@ -43,6 +43,8 @@ nnoremap <C-\><C-t> <cmd>tabnew<cr>
 nnoremap <C-\><C-\> <cmd>tabnext<cr>
 nnoremap <C-n><C-t> <cmd>NvimTreeToggle<cr>
 nnoremap <C-h> <cmd>ClangdSwitchSourceHeader<cr>
+nnoremap <C-n><C-o> <cmd>NvimTreeFindFile<cr>
+nnoremap <C-l><C-s> <cmd>!ls $(dirname %)<cr>
 
 " telescope
 nnoremap <leader>fc <cmd>Telescope commands<cr>

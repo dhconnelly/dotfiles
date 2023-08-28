@@ -59,6 +59,7 @@ fi
 
 if [ "$(uname)" == "Darwin" ]; then
     [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+    [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
     . /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 elif [ "$(uname)" == "FreeBSD" ]; then
     . /usr/local/share/examples/fzf/shell/key-bindings.bash
