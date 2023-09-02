@@ -1,0 +1,7 @@
+font:
+  size: 14
+
+window:
+  startup_mode: Maximized
+
+live_config_reload: true

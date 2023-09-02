@@ -1,7 +1,0 @@
-live_config_reload = true
-
-[window]
-startup_mode = "Maximized"
-
-[font]
-size = 12

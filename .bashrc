@@ -34,11 +34,6 @@ export CLICOLOR=1
 export MANPAGER="/usr/bin/less -R --use-color -Ddg -Du+y"
 
 # -----------------------------------------------------------------------------
-# prompt
-
-PS1='\[\e[93;2m\]\u\[\e[93m\]@\[\e[93m\]\h \[\e[0;1m\]\W \[\e[0;90m\]$(__git_ps1 "(%s) ")\[\e[0;2m\]\$ \[\e[0m\]'
-
-# -----------------------------------------------------------------------------
 # completions and so on
 
 # enable programmable completion features (you don't need to enable
@@ -59,8 +54,9 @@ if [ "$(uname)" == "Darwin" ]; then
 elif [ "$(uname)" == "FreeBSD" ]; then
     . /usr/local/share/examples/fzf/shell/key-bindings.bash
     . /usr/local/share/git-core/contrib/completion/git-prompt.sh 
-else
-    . /usr/share/doc/fzf/examples/key-bindings.bash
+elif [ "$(uname)" == "Linux" ]; then
+    . /usr/share/fzf/key-bindings.bash
+    . /usr/share/git-core/contrib/completion/git-prompt.sh 
 fi
 
 # -----------------------------------------------------------------------------
@@ -85,3 +81,8 @@ fi
 alias ll="ls -lah"
 alias vim=nvim
 alias tmux="TERM=screen-256color tmux"
+
+# -----------------------------------------------------------------------------
+# prompt
+
+PS1='\[\e[93;2m\]\u\[\e[93m\]@\[\e[93m\]\h \[\e[0;1m\]\W \[\e[0;90m\]$(__git_ps1 "(%s) ")\[\e[0;2m\]\$ \[\e[0m\]'
