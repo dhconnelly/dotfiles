@@ -19,7 +19,7 @@ lua require("go-config")
 lua require("c-config")
 
 " hooks
-autocmd BufWritePre *.rs,*.scala lua vim.lsp.buf.format({ async = false })
+autocmd BufWritePre *.rs,*.scala,*.h,*.c lua vim.lsp.buf.format({ async = false })
 
 " format go code and run goimports on save
 augroup GO_LSP

@@ -4,16 +4,11 @@ if [ -f "$HOME/.bashrc_local" ]; then
     . $HOME/.bashrc_local
 fi
 
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+export VISUAL=nvim
 export EDITOR=nvim
 export CLICOLOR=1
 export MANPAGER="/usr/bin/less -R --use-color -Ddg -Du+y"
@@ -73,17 +68,18 @@ fi
 
 if [ "$(uname)" == "Darwin" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
-    . "$HOME/.cargo/env"
 elif [ "$(uname)" == "FreeBSD" ]; then
     alias make=gmake
 fi
+export PATH=$PATH:/bin:/usr/bin
+export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
+. "$HOME/.cargo/env"
 
 # -----------------------------------------------------------------------------
 # aliases
 
 alias ll="ls -lah"
 alias vim=nvim
-alias tmux='tmux -2'
+alias tmux="TERM=screen-256color tmux"
