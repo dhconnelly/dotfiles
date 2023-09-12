@@ -17,6 +17,7 @@ lua require("lspconfig").gopls.setup({})
 lua require("metals-config")
 lua require("go-config")
 lua require("c-config")
+lua require("lsp-custom-config")
 
 " hooks
 autocmd BufWritePre *.rs,*.scala,*.h,*.c lua vim.lsp.buf.format({ async = false })
