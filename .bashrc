@@ -67,13 +67,13 @@ if [ "$(uname)" == "Darwin" ]; then
 elif [ "$(uname)" == "FreeBSD" ]; then
     alias make=gmake
 fi
-export PATH=$PATH:/bin:/usr/bin
-export PATH=$PATH:/usr/local/bin
+export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
 if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi
+export PATH="$PATH:$HOME/src/depot_tools"
 
 # -----------------------------------------------------------------------------
 # aliases
