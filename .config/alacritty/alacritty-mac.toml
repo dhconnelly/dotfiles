@@ -7,3 +7,18 @@ option_as_alt = "OnlyLeft"
 [font]
 size = 14
 
+[font.normal]
+family = "Berkeley Mono"
+style = "Regular"
+
+[font.bold]
+family = "Berkeley Mono"
+style = "Bold"
+
+[font.italic]
+family = "Berkeley Mono"
+style = "Italic"
+
+[font.bold_italic]
+family = "Berkeley Mono"
+style = "Bold Italic"
