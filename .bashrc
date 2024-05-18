@@ -28,9 +28,8 @@ if [ "$(uname)" == "Darwin" ]; then
     . /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
     . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 elif [ "$(uname)" == "Linux" ]; then
-    . /usr/share/fzf/key-bindings.bash
-    . /usr/share/git-core/contrib/completion/git-prompt.sh 
-    . /usr/share/git-core/contrib/completion/git-completion.bash 
+    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+    . /usr/share/bash-completion/completions/git
 
     # enable programmable completion features (you don't need to enable
     # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
