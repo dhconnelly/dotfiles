@@ -11,5 +11,7 @@ set ruler
 set hlsearch
 set incsearch
 set relativenumber
+set ignorecase
+set smartcase
 
 set directory=$HOME/.vim/swapfiles//
