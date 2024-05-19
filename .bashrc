@@ -14,7 +14,7 @@ alias egrep='egrep --color=auto'
 export CLICOLOR=1
 export MANPAGER="/usr/bin/less -R --use-color -Ddg -Du+y"
 
-alias l="ls -l"
+alias l="ls -lh"
 alias ll="ls -lah"
 alias tmux="TERM=screen-256color tmux"
 
