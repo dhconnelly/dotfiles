@@ -4,18 +4,14 @@
 
 - install:
     - alacritty
-    - neovim
     - rustup
     - go
-    - fzf
+    - fzf from source
     - ripgrep
-    - packer
-    - git-prompt: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-
+    - (if necessary) git-prompt: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 
 - symlink:
     - .config/alacritty/alacritty-{platform} to ~/.config/alacritty.toml
-    - .config/neovim to ~/.config/neovim
     - .tmux-{platform}.conf to ~/.tmux.conf
     - .bash{rc,_profile} to ~/.bash{rc,_profile}
 

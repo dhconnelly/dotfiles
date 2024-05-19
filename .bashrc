@@ -22,25 +22,14 @@ PS1='\[\e[93;2m\]\u\[\e[93m\]@\[\e[93m\]\h \[\e[0;1m\]\W \[\e[0;90m\]$(__git_ps1
 # -----------------------------------------------------------------------------
 # completions and so on
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 if [ "$(uname)" == "Darwin" ]; then
     [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
-    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
     . /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
     . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 elif [ "$(uname)" == "Linux" ]; then
-    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
     . /usr/share/bash-completion/completions/git
-
-    # enable programmable completion features (you don't need to enable
-    # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-    # sources /etc/bash.bashrc).
-    if ! shopt -oq posix; then
-        if [ -f /usr/share/bash-completion/bash_completion ]; then
-            . /usr/share/bash-completion/bash_completion
-        elif [ -f /etc/bash_completion ]; then
-            . /etc/bash_completion
-        fi
-    fi
 fi
 
 # -----------------------------------------------------------------------------
