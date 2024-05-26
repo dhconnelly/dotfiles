@@ -31,6 +31,7 @@ if [ "$(uname)" == "Darwin" ]; then
     . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 elif [ "$(uname)" == "Linux" ]; then
     . /usr/share/bash-completion/completions/git
+    . /usr/share/git-core/contrib/completion/git-prompt.sh
 fi
 
 # -----------------------------------------------------------------------------
