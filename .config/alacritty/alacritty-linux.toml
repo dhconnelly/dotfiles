@@ -1,0 +1,27 @@
+live_config_reload = true
+
+import = [
+    "/home/dhc/src/alacritty-theme/themes/gruvbox_dark.toml"
+]
+
+[window]
+option_as_alt = "OnlyLeft"
+
+[font]
+size = 11
+
+[font.normal]
+family = "Berkeley Mono"
+style = "Regular"
+
+[font.bold]
+family = "Berkeley Mono"
+style = "Bold"
+
+[font.italic]
+family = "Berkeley Mono"
+style = "Italic"
+
+[font.bold_italic]
+family = "Berkeley Mono"
+style = "Bold Italic"
